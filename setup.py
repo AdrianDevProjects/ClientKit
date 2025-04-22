@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="PlaydionClientkit",
+    name="PlaydionClientKit",
     version="2025.4.22",
     author="Adrian Albrecht",
     author_email="adriandevprojects@gmail.com",
