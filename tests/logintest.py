@@ -1,3 +1,3 @@
-import Clientkit.Auth as Auth
+import ClientKit.Auth as Auth
 
 print(Auth.login("test", "test"))

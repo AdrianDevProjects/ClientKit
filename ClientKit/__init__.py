@@ -1,7 +1,7 @@
 from pathlib2 import Path
 
 def info():
-    print("Playdion ClientKit v2025.4.22")
+    print("Playdion ClientKit v2025.5.6")
 
 
 

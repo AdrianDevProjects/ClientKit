@@ -44,7 +44,7 @@ def register(username, password, instant_login=bool):
 
     if response.status_code == 201:
         if instant_login:
-            login(username, password)
+            return login(username, password)
         else:
             return True
     else:
