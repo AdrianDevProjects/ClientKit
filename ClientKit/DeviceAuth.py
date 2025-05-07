@@ -58,5 +58,9 @@ def check_auth(requestid):
             break
 
 
+def get_auth_status():
+    global authstatus
+    return authstatus
+
 
 
