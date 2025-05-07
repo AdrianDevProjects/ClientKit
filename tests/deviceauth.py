@@ -1,3 +1,3 @@
 import ClientKit.DeviceAuth as Auth
 
-print(Auth.request_auth())
+print(Auth.initialize_auth())

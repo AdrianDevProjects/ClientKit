@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="PlaydionClientKit",
-    version="2025.5.6.1",
+    version="2025.5.7",
     author="Adrian Albrecht",
     author_email="adriandevprojects@gmail.com",
     packages=setuptools.find_packages(),
