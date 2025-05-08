@@ -1,7 +1,8 @@
+import webbrowser
 from pathlib2 import Path
 
 def info():
-    print("Playdion ClientKit v2025.5.7.1")
+    print("Playdion ClientKit v2025.5.8rc1")
 
 
 
@@ -26,3 +27,8 @@ def getuserid():
             return userid
     else:
         return False
+
+
+def open_auth_url():
+    auth_url = "https://onlineservices.adriandevprojects.com/v1/auth/devicelogin/"
+    webbrowser.open_new(auth_url)

@@ -2,9 +2,12 @@ import requests
 
 global devicecode
 global authstatus
+global requestid
+
 
 def initialize_auth():
     global devicecode
+    global requestid
     auth_url = "https://onlineservices.adriandevprojects.com/v1/auth/devicelogin/new/"
 
 
@@ -17,14 +20,13 @@ def initialize_auth():
     requestid = data['requestid']
     devicecode = data['devicecode']
 
-    check_auth(requestid)
+
 
 
 
 def check_auth(requestid):
     global authstatus
     global devicecode
-    print(devicecode)
     auth_url = "https://onlineservices.adriandevprojects.com/v1/auth/devicelogin/check/"
 
     headers = {
@@ -50,17 +52,22 @@ def check_auth(requestid):
                 break
 
         elif status == "WAITING":
-            authstatus = "Waiting for user to verify the device..."
+            authstatus = "WAITING"
             continue
 
         else:
-            authstatus ="Login failed: " + status
+            authstatus ="FAILED"
             break
 
-
-def get_auth_status():
-    global authstatus
     return authstatus
 
 
 
+
+def get_device_code():
+    global devicecode
+    return devicecode
+
+def get_request_id():
+    global requestid
+    return requestid
