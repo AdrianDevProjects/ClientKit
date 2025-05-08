@@ -62,5 +62,7 @@ def get_auth_status():
     global authstatus
     return authstatus
 
-
+def get_device_code():
+    global devicecode
+    return devicecode
 
