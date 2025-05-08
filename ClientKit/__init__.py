@@ -1,3 +1,4 @@
+import webbrowser
 from pathlib2 import Path
 
 def info():
@@ -26,3 +27,8 @@ def getuserid():
             return userid
     else:
         return False
+
+
+def open_auth_url():
+    auth_url = "https://onlineservices.adriandevprojects.com/v1/auth/devicelogin/"
+    webbrowser.open_new(auth_url)
