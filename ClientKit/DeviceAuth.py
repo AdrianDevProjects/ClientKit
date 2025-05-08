@@ -50,11 +50,11 @@ def check_auth(requestid):
                 break
 
         elif status == "WAITING":
-            authstatus = "Waiting for user to verify the device..."
+            authstatus = "WAITING"
             continue
 
         else:
-            authstatus ="Login failed: " + status
+            authstatus ="FAILED"
             break
 
 
