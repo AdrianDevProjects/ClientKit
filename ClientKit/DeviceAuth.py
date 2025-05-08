@@ -2,9 +2,12 @@ import requests
 
 global devicecode
 global authstatus
+global requestid
+
 
 def initialize_auth():
     global devicecode
+    global requestid
     auth_url = "https://onlineservices.adriandevprojects.com/v1/auth/devicelogin/new/"
 
 
@@ -17,7 +20,7 @@ def initialize_auth():
     requestid = data['requestid']
     devicecode = data['devicecode']
 
-    check_auth(requestid)
+
 
 
 
@@ -65,3 +68,6 @@ def get_device_code():
     global devicecode
     return devicecode
 
+def get_request_id():
+    global requestid
+    return requestid
