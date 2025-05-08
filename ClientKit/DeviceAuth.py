@@ -24,7 +24,6 @@ def initialize_auth():
 def check_auth(requestid):
     global authstatus
     global devicecode
-    print(devicecode)
     auth_url = "https://onlineservices.adriandevprojects.com/v1/auth/devicelogin/check/"
 
     headers = {
