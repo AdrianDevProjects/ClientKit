@@ -59,6 +59,8 @@ def check_auth(requestid):
             authstatus ="FAILED"
             break
 
+    return authstatus
+
 
 def get_auth_status():
     global authstatus
