@@ -2,7 +2,7 @@ import webbrowser
 from pathlib2 import Path
 
 def info():
-    print("Playdion ClientKit v2025.5.8dev1")
+    print("Playdion ClientKit v2025.5.8dev2")
 
 
 
