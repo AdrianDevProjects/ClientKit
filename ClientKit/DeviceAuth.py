@@ -12,6 +12,7 @@ def open_auth_website():
     webbrowser.open_new("https://onlineservices.adriandevprojects.com/v1/auth/devicelogin/")
     return
 
+
 def initialize_auth():
     global devicecode
     global requestid
@@ -21,7 +22,7 @@ def initialize_auth():
     headers = {
         "Content-Type": "application/x-www-form-urlencoded"
     }
-    if ClientKit.checklogin() is False:
+    if ClientKit.check_login() is False:
         response = requests.post(auth_url, headers=headers)
         data = response.json()
         requestid = data['requestid']
@@ -41,8 +42,8 @@ def check_auth(requestid):
 
 
     open_auth_website()
-    print("Waiting for authentication... CODE:")
-    print(devicecode)
+    print("Waiting for authentication...")
+    print("CODE: " + devicecode)
 
 
     auth_url = "https://onlineservices.adriandevprojects.com/v1/auth/devicelogin/check/"
@@ -76,8 +77,6 @@ def check_auth(requestid):
         else:
             authstatus ="FAILED"
             break
-
-
 
     return True
 
