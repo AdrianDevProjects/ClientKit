@@ -1,1 +1,7 @@
-Python SDK for interacting with the AdrianDevProjects Online Services Platform privately used by the Playdion Client & Backend Platform
+Python SDK for interacting with the AdrianDevProjects Online Services Platform Playdion
+
+---
+
+
+
+[Documentation (IN PROGRESS)](https://docs.adriandevprojects.com)
