@@ -1,3 +1,3 @@
 import ClientKit
 
-print(ClientKit.getuserid())
+print(ClientKit.get_user_id())

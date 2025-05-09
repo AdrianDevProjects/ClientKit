@@ -1,7 +1,7 @@
 import requests
 
 def get_user_name(userid):
-    url = "https://onlineservices.adriandevprojects.com/v1/user/get/username/"
+    url = "https://playdion.adriandevprojects.com/v1/user/get/username/"
     headers = {
         "Content-Type": "application/x-www-form-urlencoded"
     }

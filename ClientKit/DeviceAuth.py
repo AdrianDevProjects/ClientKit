@@ -9,14 +9,14 @@ global requestid
 
 
 def open_auth_website():
-    webbrowser.open_new("https://onlineservices.adriandevprojects.com/v1/auth/devicelogin/")
+    webbrowser.open_new("https://playdion.adriandevprojects.com/v1/auth/devicelogin/")
     return
 
 
 def initialize_auth():
     global devicecode
     global requestid
-    auth_url = "https://onlineservices.adriandevprojects.com/v1/auth/devicelogin/new/"
+    auth_url = "https://playdion.adriandevprojects.com/v1/auth/devicelogin/new/"
 
 
     headers = {
@@ -46,7 +46,7 @@ def check_auth(requestid):
     print("CODE: " + devicecode)
 
 
-    auth_url = "https://onlineservices.adriandevprojects.com/v1/auth/devicelogin/check/"
+    auth_url = "https://playdion.adriandevprojects.com/v1/auth/devicelogin/check/"
 
     headers = {
         "Content-Type": "application/x-www-form-urlencoded"
