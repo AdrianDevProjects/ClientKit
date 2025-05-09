@@ -8,10 +8,13 @@ def get_user_name(userid):
     data = {
         "userid": userid
     }
-    response = requests.post(url, headers=headers, data=data)
-    if response.status_code == 200:
-        data = response.json()
-        username = data['username']
-        return username
+    if userid is False:
+        return False
     else:
-        return response.status_code
+        response = requests.post(url, headers=headers, data=data)
+        if response.status_code == 200:
+            data = response.json()
+            username = data['username']
+            return username
+        else:
+            return response.status_code
