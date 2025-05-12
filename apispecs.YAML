@@ -10,7 +10,7 @@ servers:
 
 
 paths:
-  /auth/devicelogin/new:
+  /auth/devicelogin/new/:
     post:
       summary: Starts a new device authorization flow.
       responses:
@@ -31,7 +31,7 @@ paths:
                     example: "Something went wrong... please try again"
 
 
-  /auth/devicelogin/check?requestid={requestid}:
+  /auth/devicelogin/check/:
     post:
       summary: Checks the given device authorization flow for success.
       responses:
@@ -75,7 +75,7 @@ paths:
                         type: string
                         example: "No RequestID entered"
 
-  /user/get/username?userid={userid}:
+  /user/get/username/:
       post:
           summary: Gets the username of the given user ID.
           responses:
