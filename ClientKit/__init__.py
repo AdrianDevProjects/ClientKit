@@ -1,12 +1,11 @@
-import webbrowser
 from pathlib2 import Path
 
 def info():
-    print("Playdion ClientKit v2025.5.8")
+    print("Playdion ClientKit v2025.5.12")
 
 
 
-def checklogin():
+def check_login():
     accfile = Path("userdata.txt")
     if accfile.is_file():
         with open("userdata.txt", "r") as accfile:
@@ -19,8 +18,8 @@ def checklogin():
         return False
 
 
-def getuserid():
-    state = checklogin()
+def get_user_id():
+    state = check_login()
     if state is True:
         with open("userdata.txt", "r") as accfile:
             userid = accfile.read()
@@ -28,7 +27,3 @@ def getuserid():
     else:
         return False
 
-
-def open_auth_url():
-    auth_url = "https://onlineservices.adriandevprojects.com/v1/auth/devicelogin/"
-    webbrowser.open_new(auth_url)

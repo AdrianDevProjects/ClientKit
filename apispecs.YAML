@@ -1,0 +1,101 @@
+openapi: 3.0.4
+info:
+  title: Playdion API
+  description: API for the AdrianDevProjects Online Services Playdion.
+  version: 2025.5.12
+
+servers:
+  - url: https://playdion.adriandevprojects.com/v1
+    description: live production server
+
+
+paths:
+  /auth/devicelogin/new:
+    post:
+      summary: Starts a new device authorization flow.
+      responses:
+        "200":
+          description: A JSON array with a RequestID & DeviceCode
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "500":
+          description: Internal server error
+          content:
+            text/html:
+                schema:
+                    type: string
+                    example: "Something went wrong... please try again"
+
+
+  /auth/devicelogin/check?requestid={requestid}:
+    post:
+      summary: Checks the given device authorization flow for success.
+      responses:
+        "200":
+          description: The device authorization flow was successful. / Returns a JSON array with a RequestID, Status & UserID
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "100":
+          description: The device authorization flow is still pending. / Returns a JSON array with a RequestID, Status & DeviceCode
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "404":
+          description: The device authorization flow is expired. / Returns a JSON array with a RequestID & Status
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "500":
+            description: Internal server error / Returns a JSON array with a RequestID, DeviceCode & Status = "UNKNOWN ERROR"
+            content:
+                application/json:
+                    schema:
+                        type: array
+                        items:
+                            type: string
+        "403":
+            description: The request to this endpoint was invalid. It contains no RequestID
+            content:
+                text/html:
+                    schema:
+                        type: string
+                        example: "No RequestID entered"
+
+  /user/get/username?userid={userid}:
+      post:
+          summary: Gets the username of the given user ID.
+          responses:
+            "200":
+              description: The request was successful and the user exists. / Returns a JSON array with the Username
+              content:
+                application/json:
+                  schema:
+                    type: string
+            "404":
+              description: The request was successful but the UserID doesn't exist.
+              content:
+                text/html:
+                    schema:
+                        type: string
+                        example: "This UserID doesn't exist"
+            "403":
+                description: The request to this endpoint was invalid. It contains no UserID
+                content:
+                    text/html:
+                        schema:
+                            type: string
+                            example: "No UserID entered"

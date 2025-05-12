@@ -1,3 +1,3 @@
 import ClientKit
 
-print(ClientKit.checklogin())
+print(ClientKit.check_login())
