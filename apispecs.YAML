@@ -21,7 +21,15 @@ paths:
               schema:
                 type: array
                 items:
-                  type: string
+                  type: object
+                  properties:
+                    requestid:
+                      type: string
+                      example: "ABCDEF1234567890"
+                    devicecode:
+                      type: string
+                      example: "123456"
+
         "500":
           description: Internal server error
           content:
@@ -36,37 +44,76 @@ paths:
       summary: Checks the given device authorization flow for success.
       responses:
         "200":
-          description: The device authorization flow was successful. / Returns a JSON array with a RequestID, Status & UserID
+          description: The device authorization flow was successful.
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  type: string
+                  type: object
+                  properties:
+                      requestid:
+                        type: string
+                        example: "ABCDEF1234567890"
+                      status:
+                        type: string
+                        example: "SUCCESS"
+                      devicecode:
+                        type: string
+                        example: "123456"
+
         "100":
-          description: The device authorization flow is still pending. / Returns a JSON array with a RequestID, Status & DeviceCode
+          description: The device authorization flow is still pending.
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  type: string
+                  type: object
+                  properties:
+                    requestid:
+                        type: string
+                        example: "ABCDEF1234567890"
+                    status:
+                        type: string
+                        example: "WAITING"
+                    devicecode:
+                        type: string
+                        example: "123456"
         "404":
-          description: The device authorization flow is expired. / Returns a JSON array with a RequestID & Status
+          description: The device authorization flow is expired.
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  type: string
+                  type: object
+                  properties:
+                    requestid:
+                        type: string
+                        example: "ABCDEF1234567890"
+                    status:
+                        type: string
+                        example: "EXPIRED"
+
         "500":
-            description: Internal server error / Returns a JSON array with a RequestID, DeviceCode & Status = "UNKNOWN ERROR"
+            description: Internal server error
             content:
                 application/json:
                     schema:
                         type: array
                         items:
-                            type: string
+                            type: object
+                            properties:
+                                requestid:
+                                    type: string
+                                    example: "ABCDEF1234567890"
+                                status:
+                                    type: string
+                                    example: "UNKNOWN ERROR"
+                                devicecode:
+                                    type: string
+                                    example: "123456"
         "403":
             description: The request to this endpoint was invalid. It contains no RequestID
             content:
@@ -80,11 +127,18 @@ paths:
           summary: Gets the username of the given user ID.
           responses:
             "200":
-              description: The request was successful and the user exists. / Returns a JSON array with the Username
+              description: The request was successful and the user exists.
               content:
                 application/json:
                   schema:
-                    type: string
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        username:
+                          type: string
+                          example: "AdrianDevProjects"
+
             "404":
               description: The request was successful but the UserID doesn't exist.
               content:
